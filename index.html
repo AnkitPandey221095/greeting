@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Sorry</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background:url(img/WhatsApp\ Image\ 2024-12-30\ at\ 21.27.53.jpeg); /* light pink */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-repeat:no-repeat;
+            background-position: top;
+        }
+
+        .sorry-message {
+            position: absolute;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInOut 3s linear infinite;
+            word-wrap: break-word;
+            max-width: 90%;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        @media (max-width: 768px) {
+            .sorry-message {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sorry-message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createSorryMessage() {
+            const message = document.createElement('div');
+            const message2 = document.createElement('div2');
+            message.className = 'sorry-message';
+            message.textContent ='❤️I love You mera Bacha bahut jada❤️';
+
+
+
+            // Random position
+            const x = Math.random() * (window.innerWidth - 100); // Account for smaller screens
+            const y = Math.random() * (window.innerHeight - 50);
+
+            message.style.left = `${x}px`;
+            message.style.top = `${y}px`;
+
+            const a = Math.random() * (window.innerWidth - 100); // Account for smaller screens
+            const b = Math.random() * (window.innerHeight - 50);
+
+            message2.style.left = `${a}px`;
+            message2.style.top = `${b}px`;
+
+            document.body.appendChild(message);
+            document.body.appendChild(message2);
+            
+
+            // Remove the message after the animation completes
+            setTimeout(() => {
+                message.remove();
+                message2.remove();
+            }, 3000);
+        }
+
+        // Create a new message every 500ms
+        setInterval(createSorryMessage, 500);
+        
+    </script>
+</body>
+</html>
